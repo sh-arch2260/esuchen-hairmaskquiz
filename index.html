@@ -330,19 +330,17 @@
 
 <script>
 const PRODUCTS = {
-  P01: { name: "高蛋白修護精華 750ML", price: "NT$1500", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/高蛋白修護精華.png", storeUrl: "https://www.nppehaircare.com/products/hair-revive-protein-rich-hair-serum" },
-  P02: { name: "巴西莓逆齡髮膜", price: "NT$1000", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/高蛋白修護精華.png", storeUrl: "https://www.nppehaircare.com/products/clean-hair" },
-  P03: { name: "能量護髮膜", price: "NT$1000", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/能量護髮膜.png", storeUrl: "https://www.nppehaircare.com/products/甘胺酸護色舒緩洗髮精" },
-  P04: { name: "辣木奇蹟-結構還原護髮霜 750ML", price: "NT$1500", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/辣木奇蹟-結構還原護髮霜.png", storeUrl: "https://www.nppehaircare.com/products/deep-recovery-hair-treatment" },
-  P05: { name: "奇蹟柔感原液 6*25ML", price: "NT$1500", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/奇蹟柔感原液.png", storeUrl: "https://www.nppehaircare.com/products/奇蹟柔感原液" },
-  P06: { name: "牛磺酸髮根能量活性髮膜 750ML", price: "NT$1000", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/牛磺酸髮根能量活性髮膜.png", storeUrl: "https://www.nppehaircare.com/products/牛磺酸髮根能量活性髮膜" },
-  P07: { name: "結構性護髮組 750ML+10ML*7", price: "NT$1800", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/結構性護髮組.png", storeUrl: "https://www.nppehaircare.com/products/結構性護髮組" },
-  P08: { name: "角元蛋白霜 500ML", price: "NT$1800", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/角元蛋白霜.png", storeUrl: "https://www.nppehaircare.com/products/植萃養髮香水" },
-  P09: { name: "日本溫泉豐潤修護髮膜 500ML", price: "NT$1500", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/日本溫泉豐潤修護髮膜.png", storeUrl: "https://www.nppehaircare.com/products/hot-spring-regenerating-hair-mask" },
-  P10: { name: "熱塑角元蛋白霜", price: "NT$1000", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/高蛋白修護精華.png", storeUrl: "https://www.nppehaircare.com/products/頭皮維他命" },
-  P11: { name: "同質素 280ML", price: "NT$800", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/同質素.png", storeUrl: "https://www.nppehaircare.com/products/同質素" },
-  P12: { name: "YUMMY HAIR活化頭皮潤澤護髮組", price: "NT$1000", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/高蛋白修護精華.png", storeUrl: "https://www.nppehaircare.com/products/人蔘蘆薈甦醒液" },
-  P13: { name: "花果香氛護髮組 750ML + 10ML*7", price: "NT$1300", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/花果香氛護髮組.png", storeUrl: "https://www.nppehaircare.com/products/花果香氛護髮組" },
+  P01: { name: "冰海藻精油護髮霜 600ML", price: "NT$1200", image: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/mask/冰海藻精油護色霜.png", storeUrl: "https://www.esuchenhaircare.com/products/%E5%86%B0%E6%B5%B7%E8%97%BB%E7%B2%BE%E6%B2%B9%E8%AD%B7%E8%89%B2%E9%9C%9C" },
+  P02: { name: "花果香氛護髮組 750ML + 10ML*7", price: "NT$1300", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/花果香氛護髮組.png", storeUrl: "https://www.esuchenhaircare.com/products/%E8%97%9D%E6%80%9D%E6%99%A8%E8%8A%B1%E6%9E%9C%E9%A6%99%E6%B0%9B%E7%B2%BE%E6%B2%B9%E8%AD%B7%E9%AB%AE%E7%B5%84" },
+  P03: { name: "紅石榴活水保濕護髮霜 1000ML", price: "NT$1200", image: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/mask/紅石榴活水保濕護髮霜.png", storeUrl: "https://www.esuchenhaircare.com/products/pomegranate-repairing-treatment" },
+  // P04: { name: "奢華松露何首烏精油護髮組", price: "NT$1500", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/辣木奇蹟-結構還原護髮霜.png", storeUrl: "https://www.nppehaircare.com/products/deep-recovery-hair-treatment" },
+  P04: { name: "奇蹟柔感原液 6*25ML", price: "NT$1500", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/奇蹟柔感原液.png", storeUrl: "https://www.nppehaircare.com/products/奇蹟柔感原液" },
+  P05: { name: "CYS胜肽極致護髮霜 600ML", price: "NT$1800", image: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/mask/CYS胜肽極致護髮霜.png", storeUrl: "https://www.esuchenhaircare.com/products/protein-fix-strengthening-hair-mask" },
+  P06: { name: "同質素 280ML", price: "NT$800", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/同質素.png", storeUrl: "https://www.esuchenhaircare.com/products/condensed-hair-treatment" },
+  P07: { name: "結構性護髮組 750ML+10ML*7", price: "NT$1800", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/結構性護髮組.png", storeUrl: "https://www.esuchenhaircare.com/products/%E8%97%9D%E6%80%9D%E6%99%A8%E7%B5%90%E6%A7%8B%E6%80%A7%E8%AD%B7%E9%AB%AE%E7%B5%84" },
+  P08: { name: "角元蛋白霜 500ML", price: "NT$1800", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/角元蛋白霜.png", storeUrl: "https://www.esuchenhaircare.com/products/%E8%97%9D%E6%80%9D%E6%99%A8%E7%86%B1%E5%A1%91%E8%A7%92%E5%85%83%E8%9B%8B%E7%99%BD%E9%9C%9C" },
+  // P10: { name: "茄紅素護髮霜", price: "NT$1500", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/日本溫泉豐潤修護髮膜.png", storeUrl: "https://www.nppehaircare.com/products/hot-spring-regenerating-hair-mask" },
+  P09: { name: "YUMMY HAIR活化頭皮潤澤護髮組 25ML + 75ML", price: "NT$800", image: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/mask/yummy.png", storeUrl: "https://www.esuchenhaircare.com/products/scalp--hair-revitalizing-treatment" },  
 };
 
 // ═══════════════════════════════════════════════════════════════
@@ -357,7 +355,7 @@ const QUESTIONS = [
       { text: "頭髮乾燥需要保濕補水", product: "P01" },
       { text: "頭髮易塌，需要輕盈蓬鬆的護髮", product: "P02" },
       { text: "頭髮毛躁沒有光澤，需要增強亮度與柔順感", product: "P03" },
-      { text: "頭髮易脆弱、斷裂、髮尾分岔，需要加強髮絲強韌度", product: "P04" },
+      { text: "頭髮易脆弱、斷裂、髮尾分岔，需要加強髮絲強韌度", product: "P05" },
     ]
   },
   {
@@ -365,9 +363,9 @@ const QUESTIONS = [
     emoji: "🪞",
     title: "希望髮膜在使用後多久見效？",
     options: [
-      { text: "即刻（吹乾就明顯）", product: "P05" },
-      { text: "24–48 小時內持續改善", product: "P06" },
-      { text: "多次使用後累積效果", product: "P07" },
+      { text: "即刻（吹乾就明顯）", product: "P04" },
+      { text: "24–48 小時內持續改善", product: "P05" },
+      { text: "多次使用後累積效果", product: ["P06","P07"] },
       { text: "主要追求長期修復，不求速效", product: "P08" },
     ]
   },
@@ -376,10 +374,10 @@ const QUESTIONS = [
     emoji: "🌊",
     title: "你喜歡怎麼樣的髮膜？",
     options: [
-      { text: "絲滑豐潤、香氛低調優雅", product: "P09" },
-      { text: "輕盈不黏、偏天然植物香氣", product: "P02" },
-      { text: "僅追求功效、香味次要", product: "P07" },
-      { text: "喜歡奢華香氛，香味持久度高且使用儀式感強", product: "P06" }, 
+      { text: "絲滑豐潤、香氛低調優雅", product: "P03" },
+      { text: "輕盈不黏、偏天然植物香氣", product: "P05" },
+      { text: "僅追求功效、香味次要", product: "P05" },
+      { text: "喜歡奢華香氛，香味持久度高且使用儀式感強", product: "P05" }, 
     ]
   },
   {
@@ -387,20 +385,20 @@ const QUESTIONS = [
     emoji: "🎨",
     title: "你染燙的頻率為何?",
     options: [
-      { text: "一年染燙3次含以上(嚴重受損)", product: ["P10","P11"] },
-      { text: "一年染燙1-2次(中度受損)", product: "P06" },
-      { text: "一年有漂髮1-2次", product: ["P09","P11"] },
+      { text: "一年染燙3次含以上(嚴重受損)", product: "P04" },
+      { text: "一年染燙1-2次(中度受損)", product: "P07" },
+      { text: "一年有漂髮1-2次", product: "P01" },
     ]
   },
   {
     emoji: "🔥",
     title: "你是否有以下頭皮、肩頸緊繃困擾?",
     options: [
-      { text: "燙染髮時頭皮已感覺到不舒服，覺得緊繃和癢", product: "P06" },
+      { text: "燙染髮時頭皮已感覺到不舒服，覺得緊繃和癢", product: "P03" },
       { text: "頭皮易出油", product: "P02" },
       { text: "敏感性頭皮", product: "P12" },
       { text: "頭皮緊繃、乾癢", product: "P06" },
-      { text: "壓力大肩頸緊繃", product: "P13" },
+      { text: "壓力大肩頸緊繃", product: "P02" },
     ]
   },
 ];
