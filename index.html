@@ -8,16 +8,18 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
     :root {
-      --cream:  #F5F5F3;
-      --ink:    #14171A;
-      --blush:  #C7A8A0;   /* muted, almost clay */
-      --sage:   #A8B5AE;   /* cooler, grayed-out sage */
-      --warm:   #B08A5C;
-      --muted:  #6B6E70;
-      --card:   #FFFFFF;
-      --border: #DCDCD8;
+      --cream:  #FDFBF7;   /* Warm linen off-white */
+      --ink:    #3D2F24;   /* Deep espresso brown instead of harsh black */
+      --blush:  #DFB89A;   /* Soft, warm peach-gold accent */
+      --sage:   #6E503B;   /* Velvety chestnut brown accent */
+      --warm:   #C69B7B;   /* Stronger warm gold for buttons/selection states */
+      --muted:  #8E8174;   /* Earthy stone gray-brown for secondary text */
+      --card:   #FFFFFF;   /* Clean white for card containers */
+      --border: #EFEAE2;   /* Soft, warm sandy divider lines */
     }
+    
     html, body {
       height: 100%;
       background: var(--cream);
@@ -90,7 +92,7 @@
       text-transform: uppercase; padding: 17px 40px;
       cursor: pointer; transition: background 0.2s, transform 0.15s;
     }
-    .btn-primary:active { background: #3A3530; transform: scale(0.98); }
+    .btn-primary:active { background: #554233; transform: scale(0.98); }
 
     /* ── QUESTION ── */
     #question { align-items: stretch; }
@@ -148,7 +150,7 @@
       font-size: 13px; line-height: 1.4; color: var(--ink);
     }
     .option-btn.selected {
-      border-color: var(--warm); background: #FDF5EF;
+      border-color: var(--warm); background: #FAF3EC;
     }
     .option-btn.selected .opt-label { color: var(--warm); }
     .q-nav {
@@ -187,9 +189,9 @@
       font-size: clamp(26px, 7.5vw, 40px); font-weight: 700; line-height: 1.1;
       margin-bottom: 8px;
     }
-    .result-header p { font-size: 13px; color: #B0A89F; line-height: 1.6; }
+    .result-header p { font-size: 13px; color: #D4C4B4; line-height: 1.6; }
     .result-count-bar {
-      background: #241F1C; color: var(--blush);
+      background: #2D221A; color: var(--blush);
       padding: 10px 24px; text-align: center;
       font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -218,7 +220,7 @@
     .product-img img {
       width: 100%; height: 100%;
       object-fit: contain;
-      background: #f5f5f5;
+      background: #FAF9F6;
       display: block;
     }
     .product-info { flex: 1; min-width: 0; }
@@ -240,7 +242,7 @@
       text-transform: uppercase; padding: 9px 16px; cursor: pointer;
       transition: background 0.2s;
     }
-    .btn-buy:active { background: #AD7A54; }
+    .btn-buy:active { background: #B38663; }
     .retake-wrap { padding: 0 20px 48px; display: flex; flex-direction: column; gap: 10px; }
     .btn-send {
       width: 100%; background: var(--warm); color: #fff;
@@ -250,7 +252,7 @@
       text-transform: uppercase; padding: 16px; cursor: pointer;
       transition: background 0.2s;
     }
-    .btn-send:active { background: #AD7A54; }
+    .btn-send:active { background: #B38663; }
     .btn-retake {
       width: 100%; background: transparent;
       border: 1.5px solid var(--ink); border-radius: 2px;
@@ -258,6 +260,7 @@
       font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
       text-transform: uppercase; padding: 16px; cursor: pointer; color: var(--ink);
     }
+    .btn-retake:active { background: var(--border); }
   </style>
 </head>
 <body>
@@ -330,22 +333,17 @@
 
 <script>
 const PRODUCTS = {
-  P01: { name: "冰海藻精油護髮霜 600ML", price: "NT$1200", image: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/mask/冰海藻精油護色霜.png", storeUrl: "https://www.esuchenhaircare.com/products/%E5%86%B0%E6%B5%B7%E8%97%BB%E7%B2%BE%E6%B2%B9%E8%AD%B7%E8%89%B2%E9%9C%9C" },
-  P02: { name: "花果香氛護髮組 750ML + 10ML*7", price: "NT$1300", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/花果香氛護髮組.png", storeUrl: "https://www.esuchenhaircare.com/products/%E8%97%9D%E6%80%9D%E6%99%A8%E8%8A%B1%E6%9E%9C%E9%A6%99%E6%B0%9B%E7%B2%BE%E6%B2%B9%E8%AD%B7%E9%AB%AE%E7%B5%84" },
-  P03: { name: "紅石榴活水保濕護髮霜 1000ML", price: "NT$1200", image: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/mask/紅石榴活水保濕護髮霜.png", storeUrl: "https://www.esuchenhaircare.com/products/pomegranate-repairing-treatment" },
-  // P04: { name: "奢華松露何首烏精油護髮組", price: "NT$1500", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/辣木奇蹟-結構還原護髮霜.png", storeUrl: "https://www.nppehaircare.com/products/deep-recovery-hair-treatment" },
-  P04: { name: "奇蹟柔感原液 6*25ML", price: "NT$1500", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/奇蹟柔感原液.png", storeUrl: "https://www.nppehaircare.com/products/奇蹟柔感原液" },
-  P05: { name: "CYS胜肽極致護髮霜 600ML", price: "NT$1800", image: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/mask/CYS胜肽極致護髮霜.png", storeUrl: "https://www.esuchenhaircare.com/products/protein-fix-strengthening-hair-mask" },
-  P06: { name: "同質素 280ML", price: "NT$800", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/同質素.png", storeUrl: "https://www.esuchenhaircare.com/products/condensed-hair-treatment" },
-  P07: { name: "結構性護髮組 750ML+10ML*7", price: "NT$1800", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/結構性護髮組.png", storeUrl: "https://www.esuchenhaircare.com/products/%E8%97%9D%E6%80%9D%E6%99%A8%E7%B5%90%E6%A7%8B%E6%80%A7%E8%AD%B7%E9%AB%AE%E7%B5%84" },
-  P08: { name: "角元蛋白霜 500ML", price: "NT$1800", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/角元蛋白霜.png", storeUrl: "https://www.esuchenhaircare.com/products/%E8%97%9D%E6%80%9D%E6%99%A8%E7%86%B1%E5%A1%91%E8%A7%92%E5%85%83%E8%9B%8B%E7%99%BD%E9%9C%9C" },
-  // P10: { name: "茄紅素護髮霜", price: "NT$1500", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/日本溫泉豐潤修護髮膜.png", storeUrl: "https://www.nppehaircare.com/products/hot-spring-regenerating-hair-mask" },
+  P01: { name: "冰海藻精油護髮霜 600ML", price: "NT$1200", image: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/mask/%E5%86%B0%E6%B5%B7%E8%97%BB%E7%B2%BE%E6%B2%B9%E8%AD%B7%E8%89%B2%E9%9C%9C.png", storeUrl: "https://www.esuchenhaircare.com/products/%E5%86%B0%E6%B5%B7%E8%97%BB%E7%B2%BE%E6%B2%B9%E8%AD%B7%E8%89%B2%E9%9C%9C" },
+  P02: { name: "花果香氛護髮組 750ML + 10ML*7", price: "NT$1300", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/%E8%8A%B1%E6%9E%9C%E9%A6%99%E6%B0%9B%E8%AD%B7%E9%AB%AE%E7%B5%84.png", storeUrl: "https://www.esuchenhaircare.com/products/%E8%97%9D%E6%80%9D%E6%99%A8%E8%8A%B1%E6%9E%9C%E9%A6%99%E6%B0%9B%E7%B2%BE%E6%B2%B9%E8%AD%B7%E9%AB%AE%E7%B5%84" },
+  P03: { name: "紅石榴活水保濕護髮霜 1000ML", price: "NT$1200", image: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/mask/%E7%B4%85%E7%9F%B3%E6%A6%B1%E6%B4%BB%E6%B0%B4%E4%BF%9D%E6%BF%95%E8%AD%B7%E9%AB%AE%E9%9C%9C.png", storeUrl: "https://www.esuchenhaircare.com/products/pomegranate-repairing-treatment" },
+  P04: { name: "奇蹟柔感原液 6*25ML", price: "NT$1500", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/%E5%A5%87%E跡%E6%9F%94%E6%84%9F%E5%8E%9F%E6%B5%B2.png", storeUrl: "https://www.nppehaircare.com/products/奇蹟柔感原液" },
+  P05: { name: "CYS胜肽極致護髮霜 600ML", price: "NT$1800", image: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/mask/CYS%E8%83%9C%E8%82%BD%E6%A5%B5%E8%87%B4%E8%AD%B7%E9%AB%AE%E9%9C%9C.png", storeUrl: "https://www.esuchenhaircare.com/products/protein-fix-strengthening-hair-mask" },
+  P06: { name: "同質素 280ML", price: "NT$800", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/%E5%90%8C%E8%B3%AA%E7%B4%A0.png", storeUrl: "https://www.esuchenhaircare.com/products/condensed-hair-treatment" },
+  P07: { name: "結構性護髮組 750ML+10ML*7", price: "NT$1800", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/%E7%B5%90%E6%A7%8B%E6%80%A7%E8%AD%B7%E9%AB%AE%E7%B5%84.png", storeUrl: "https://www.esuchenhaircare.com/products/%E8%97%9D%E6%80%9D%E6%99%A8%E7%B5%90%E6%A7%8B%E6%80%A7%E8%AD%B7%E9%AB%AE%E7%B5%84" },
+  P08: { name: "角元蛋白霜 500ML", price: "NT$1800", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/%E8%A7%92%E5%85%83%E8%9B%8B%E7%99%BD%E9%9C%9C.png", storeUrl: "https://www.esuchenhaircare.com/products/%E8%97%9D%E6%80%9D%E6%99%A8%E7%86%B1%E5%A1%91%E8%A7%92%E5%85%83%E8%9B%8B%E7%99%BD%E9%9C%9C" },
   P09: { name: "YUMMY HAIR活化頭皮潤澤護髮組 25ML + 75ML", price: "NT$800", image: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/mask/yummy.png", storeUrl: "https://www.esuchenhaircare.com/products/scalp--hair-revitalizing-treatment" },  
 };
 
-// ═══════════════════════════════════════════════════════════════
-//  QUESTIONS
-// ═══════════════════════════════════════════════════════════════
 const QUESTIONS = [
   {
     image: "https://raw.githubusercontent.com/vececalls/LIFF-test/master/nppe-catalog/scalp-problem.jpg",
@@ -403,13 +401,9 @@ const QUESTIONS = [
   },
 ];
 
-// ═══════════════════════════════════════════════════════════════
-//  STATE
-// ═══════════════════════════════════════════════════════════════
 let currentQ = 0;
 let answers  = new Array(QUESTIONS.length).fill(null);
 
-// ── helpers ──────────────────────────────────────────────────
 function show(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
@@ -431,7 +425,6 @@ function getRecommended() {
   return list;
 }
 
-// ── COVER ────────────────────────────────────────────────────
 function startQuiz() {
   currentQ = 0;
   answers.fill(null);
@@ -439,7 +432,6 @@ function startQuiz() {
   show('question');
 }
 
-// ── QUESTION ─────────────────────────────────────────────────
 function renderQuestion() {
   const q     = QUESTIONS[currentQ];
   const total = QUESTIONS.length;
@@ -497,7 +489,6 @@ function prevQuestion() {
   else show('cover');
 }
 
-// ── RESULT (in-app, NO price shown) ────────────────────────────
 function showResult() {
   const recommended = getRecommended();
 
@@ -508,11 +499,13 @@ function showResult() {
   list.innerHTML = '';
   recommended.forEach((pid, idx) => {
     const p    = PRODUCTS[pid];
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.style.animationDelay = (idx * 0.08 + 0.04) + 's';
-    card.innerHTML = renderProductCard(p);
-    list.appendChild(card);
+    if (p) {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.style.animationDelay = (idx * 0.08 + 0.04) + 's';
+      card.innerHTML = renderProductCard(p);
+      list.appendChild(card);
+    }
   });
 
   show('result');
@@ -537,7 +530,6 @@ function retakeQuiz() {
   show('question');
 }
 
-// ── FLEX MESSAGE → LINE CHAT (price shown here only) ───────────
 function buildFlexBubble(p) {
   return {
     type: "bubble",
@@ -546,7 +538,7 @@ function buildFlexBubble(p) {
       type: "box",
       layout: "vertical",
       paddingAll: "0px",
-      backgroundColor: "#FAF7F2",
+      backgroundColor: "#FDFBF7",
       contents: [
         {
           type: "box",
@@ -568,8 +560,8 @@ function buildFlexBubble(p) {
               background: {
                 type: "linearGradient",
                 angle: "0deg",
-                startColor: "#1A1714cc",
-                endColor: "#1A171400"
+                startColor: "#3D2F24cc",
+                endColor: "#3D2F2400"
               },
               width: "100%",
               height: "50%",
@@ -588,7 +580,7 @@ function buildFlexBubble(p) {
                 {
                   type: "text",
                   text: p.name,
-                  color: "#FAF7F2",
+                  color: "#FDFBF7",
                   size: "sm",
                   weight: "bold",
                   wrap: true
@@ -596,7 +588,7 @@ function buildFlexBubble(p) {
                 {
                   type: "text",
                   text: p.price,
-                  color: "#C8956C",
+                  color: "#DFB89A",
                   size: "sm",
                   weight: "bold"
                 }
@@ -607,7 +599,7 @@ function buildFlexBubble(p) {
         {
           type: "box",
           layout: "vertical",
-          backgroundColor: "#FAF7F2",
+          backgroundColor: "#FFFFFF",
           paddingAll: "12px",
           contents: [
             {
@@ -618,8 +610,56 @@ function buildFlexBubble(p) {
                 uri: p.storeUrl
               },
               style: "primary",
-              color: "#C8956C",
+              color: "#C69B7B",
               height: "sm"
+            }
+          ]
+        }
+      ]
+    }
+  };
+}
+
+function buildIntroBubble() {
+  return {
+    type: "bubble",
+    size: "kilo",
+    body: {
+      type: "box",
+      layout: "vertical",
+      paddingAll: "0px",
+      backgroundColor: "#FDFBF7",
+      contents: [
+        {
+          type: "image",
+          url: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/result-card.png",
+          size: "full",
+          aspectRatio: "1:1",
+          aspectMode: "cover"
+        },
+        {
+          type: "box",
+          layout: "horizontal",
+          backgroundColor: "#FFFFFF",
+          paddingAll: "18px",
+          contents: [
+            {
+              type: "text",
+              text: "您的專屬髮品推薦",
+              color: "#6E503B",
+              size: "sm",
+              weight: "bold",
+              gravity: "center",
+              flex: 1
+            },
+            {
+              type: "text",
+              text: "→",
+              color: "#6E503B",
+              size: "md",
+              weight: "bold",
+              align: "end",
+              gravity: "center"
             }
           ]
         }
@@ -636,7 +676,7 @@ async function sendToChat() {
     return;
   }
 
-  const bubbles = recommended.map(pid => buildFlexBubble(PRODUCTS[pid]));
+  const bubbles = [buildIntroBubble(), ...recommended.map(pid => buildFlexBubble(PRODUCTS[pid]))];
 
   try {
     await liff.sendMessages([
@@ -656,7 +696,6 @@ async function sendToChat() {
   }
 }
 
-// ── LIFF INIT ────────────────────────────────────────────────
 (async () => {
   try {
     await liff.init({ liffId: "2010695719-5sbQQkew" });
