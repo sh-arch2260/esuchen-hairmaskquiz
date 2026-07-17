@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>了解自己的頭髮問題，才能對症下藥！</title>
+  <title>了解自己的髮膜需求，才能對症下藥！</title>
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
@@ -27,7 +27,7 @@
       color: var(--ink);
       overflow: hidden;
     }
-
+ 
     /* ── SCREENS ── */
     .screen {
       position: fixed; inset: 0;
@@ -41,7 +41,7 @@
     .screen.hidden {
       opacity: 0; pointer-events: none; transform: translateX(28px);
     }
-
+ 
     /* ── COVER ── */
     #cover { align-items: stretch; }
     .cover-hero {
@@ -93,16 +93,16 @@
       cursor: pointer; transition: background 0.2s, transform 0.15s;
     }
     .btn-primary:active { background: #554233; transform: scale(0.98); }
-
+ 
     /* ── QUESTION ── */
     #question { align-items: stretch; }
     .q-topbar {
       display: flex; align-items: center; gap: 12px;
-      padding: 14px 16px 10px;
+      padding: 18px 20px 0;
       flex-shrink: 0;
     }
     .q-progress-track {
-      flex: 1; height: 4px; background: var(--border); border-radius: 99px; overflow: hidden;
+      flex: 1; height: 3px; background: var(--border); border-radius: 99px; overflow: hidden;
     }
     .q-progress-fill {
       height: 100%; background: var(--warm); border-radius: 99px;
@@ -112,24 +112,29 @@
       font-size: 11px; font-weight: 500; color: var(--muted);
       white-space: nowrap; letter-spacing: 0.04em;
     }
-    .q-image {
-      width: 100%; height: 44vw; max-height: 220px;
-      background: linear-gradient(135deg, #D4C4B4 0%, #9E8878 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 62px; flex-shrink: 0; overflow: hidden;
+ 
+    /* Signature: running numeral replaces the old per-question photo. */
+    .q-marker {
+      display: flex; align-items: baseline; gap: 6px;
+      padding: 28px 20px 0;
+      flex-shrink: 0;
     }
-    .q-image img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
+    .q-marker-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px; font-weight: 700; line-height: 1;
+      color: var(--warm);
     }
-    .q-body { flex: 1; padding: 22px 20px 108px; }
-    .q-counter {
-      font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--warm); margin-bottom: 6px;
+    .q-marker-total {
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      letter-spacing: 0.04em;
     }
+ 
+    .q-body { flex: 1; padding: 14px 20px 108px; }
     .q-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(20px, 5.5vw, 28px); font-weight: 600; line-height: 1.22;
-      margin-bottom: 22px;
+      font-size: clamp(21px, 5.8vw, 29px); font-weight: 600; line-height: 1.25;
+      margin: 6px 0 26px;
+      max-width: 340px;
     }
     .options-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
@@ -137,9 +142,9 @@
     .option-btn {
       background: var(--card);
       border: 1.5px solid var(--border); border-radius: 6px;
-      padding: 14px 12px; text-align: left; cursor: pointer;
+      padding: 16px 14px; text-align: left; cursor: pointer;
       transition: border-color 0.18s, background 0.18s, transform 0.12s;
-      display: flex; flex-direction: column; gap: 5px;
+      display: flex; flex-direction: column; gap: 6px;
     }
     .option-btn:active { transform: scale(0.97); }
     .opt-label {
@@ -176,7 +181,7 @@
       transition: opacity 0.2s;
     }
     .btn-next:disabled { opacity: 0.32; cursor: default; }
-
+ 
     /* ── RESULT ── */
     #result { align-items: stretch; }
     .result-header {
@@ -264,7 +269,7 @@
   </style>
 </head>
 <body>
-
+ 
 <!-- ══════════════════════════════════════
      COVER
 ══════════════════════════════════════ -->
@@ -272,11 +277,11 @@
   <img src="https://raw.githubusercontent.com/vececalls/LIFF-test/master/nppe-catalog/hero.png" class="cover-hero" alt="cover" />
   <div class="cover-body">
     <div class="eyebrow">2分鐘左右</div>
-    <h1 class="cover-title">頭皮小測試</h1>
-    <p class="cover-sub">了解自己的頭皮問題，才能對症下藥！</p>
+    <h1 class="cover-title">髮膜小測試</h1>
+    <p class="cover-sub">了解自己的髮膜需求，才能對症下藥！</p>
     <div class="cover-meta">
       <div class="cover-meta-item">
-        <span class="val">10</span>
+        <span class="val">5</span>
         <span class="lbl">問題</span>
       </div>
       <div class="cover-meta-item">
@@ -291,7 +296,7 @@
     <button class="btn-primary" onclick="startQuiz()">開始</button>
   </div>
 </div>
-
+ 
 <!-- ══════════════════════════════════════
      QUESTION
 ══════════════════════════════════════ -->
@@ -302,9 +307,11 @@
     </div>
     <span class="q-step-label" id="qStepLabel"></span>
   </div>
-  <div class="q-image" id="qImage"></div>
+  <div class="q-marker">
+    <span class="q-marker-num" id="qMarkerNum"></span>
+    <span class="q-marker-total" id="qMarkerTotal"></span>
+  </div>
   <div class="q-body">
-    <div class="q-counter" id="qCounter"></div>
     <h2 class="q-title" id="qTitle"></h2>
     <div class="options-grid" id="optionsGrid"></div>
   </div>
@@ -313,7 +320,7 @@
     <button class="btn-next" id="btnNext" onclick="nextQuestion()" disabled>繼續 →</button>
   </div>
 </div>
-
+ 
 <!-- ══════════════════════════════════════
      RESULT
 ══════════════════════════════════════ -->
@@ -342,12 +349,12 @@ const PRODUCTS = {
   P08: { name: "角元蛋白霜 500ML", price: "NT$1800", image: "https://raw.githubusercontent.com/sh-arch2260/nppe-hairmaskquiz/master/catalog/角元蛋白霜.png", storeUrl: "https://www.esuchenhaircare.com/products/%E8%97%9D%E6%80%9D%E6%99%A8%E7%86%B1%E5%A1%91%E8%A7%92%E5%85%83%E8%9B%8B%E7%99%BD%E9%9C%9C" },
   P09: { name: "YUMMY HAIR活化頭皮潤澤護髮組 25ML + 75ML", price: "NT$800", image: "https://raw.githubusercontent.com/sh-arch2260/product-catalog/master/esuchen/mask/yummy.png", storeUrl: "https://www.esuchenhaircare.com/products/scalp--hair-revitalizing-treatment" },  
 };
-
+ 
 const QUESTIONS = [
   {
     image: "https://raw.githubusercontent.com/vececalls/LIFF-test/master/nppe-catalog/scalp-problem.jpg",
     emoji: "💆",
-    title: "你期待做完深層護髮後可以得到什麼效果?？",
+    title: "你期待做完深層護髮後可以得到什麼效果？",
     options: [
       { text: "頭髮乾燥需要保濕補水", product: "P01" },
       { text: "頭髮易塌，需要輕盈蓬鬆的護髮", product: "P02" },
@@ -399,16 +406,16 @@ const QUESTIONS = [
     ]
   },
 ];
-
+ 
 let currentQ = 0;
 let answers  = new Array(QUESTIONS.length).fill(null);
-
+ 
 function show(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
   document.getElementById(id).scrollTop = 0;
 }
-
+ 
 function getRecommended() {
   const seen = new Set();
   const list = [];
@@ -423,33 +430,27 @@ function getRecommended() {
   });
   return list;
 }
-
+ 
 function startQuiz() {
   currentQ = 0;
   answers.fill(null);
   renderQuestion();
   show('question');
 }
-
+ 
 function renderQuestion() {
   const q     = QUESTIONS[currentQ];
   const total = QUESTIONS.length;
   const pct   = (currentQ / total) * 100;
-
+ 
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('qStepLabel').textContent   = `${currentQ + 1} / ${total}`;
-
-  const qImageEl = document.getElementById('qImage');
-  if (q.image) {
-    qImageEl.innerHTML = `<img src="${q.image}" alt="" />`;
-  } else {
-    qImageEl.innerHTML = '';
-    qImageEl.textContent = q.emoji;
-  }
-
-  document.getElementById('qCounter').textContent = `第 ${currentQ + 1} 題，共 ${total} 題`;
-  document.getElementById('qTitle').textContent   = q.title;
-
+ 
+  document.getElementById('qMarkerNum').textContent   = String(currentQ + 1).padStart(2, '0');
+  document.getElementById('qMarkerTotal').textContent = `／ ${String(total).padStart(2, '0')}`;
+ 
+  document.getElementById('qTitle').textContent = q.title;
+ 
   const grid   = document.getElementById('optionsGrid');
   const labels = ['A', 'B', 'C', 'D', 'E'];
   grid.innerHTML = '';
@@ -460,7 +461,7 @@ function renderQuestion() {
     btn.onclick = () => selectOption(i);
     grid.appendChild(btn);
   });
-
+ 
   const isFirst = currentQ === 0;
   const isLast  = currentQ === total - 1;
   document.getElementById('btnPrev').style.display = isFirst ? 'none' : 'block';
@@ -468,7 +469,7 @@ function renderQuestion() {
   btnNext.disabled    = answers[currentQ] === null;
   btnNext.textContent = isLast ? '查看結果 →' : '繼續 →';
 }
-
+ 
 function selectOption(i) {
   answers[currentQ] = i;
   document.querySelectorAll('.option-btn').forEach((b, idx) =>
@@ -476,24 +477,24 @@ function selectOption(i) {
   );
   document.getElementById('btnNext').disabled = false;
 }
-
+ 
 function nextQuestion() {
   if (answers[currentQ] === null) return;
   if (currentQ < QUESTIONS.length - 1) { currentQ++; renderQuestion(); }
   else showResult();
 }
-
+ 
 function prevQuestion() {
   if (currentQ > 0) { currentQ--; renderQuestion(); }
   else show('cover');
 }
-
+ 
 function showResult() {
   const recommended = getRecommended();
-
+ 
   document.getElementById('resultCountBar').textContent =
     `${recommended.length} 款符合您髮質的產品`;
-
+ 
   const list = document.getElementById('productsList');
   list.innerHTML = '';
   recommended.forEach((pid, idx) => {
@@ -506,10 +507,10 @@ function showResult() {
       list.appendChild(card);
     }
   });
-
+ 
   show('result');
 }
-
+ 
 function renderProductCard(p) {
   const imgHTML = p.image
     ? `<div class="product-img"><img src="${p.image}" alt="${p.name}" /></div>`
@@ -521,14 +522,14 @@ function renderProductCard(p) {
       <a class="btn-buy" href="${p.storeUrl}" target="_blank">立即購買</a>
     </div>`;
 }
-
+ 
 function retakeQuiz() {
   answers.fill(null);
   currentQ = 0;
   renderQuestion();
   show('question');
 }
-
+ 
 function buildFlexBubble(p) {
   return {
     type: "bubble",
@@ -618,7 +619,7 @@ function buildFlexBubble(p) {
     }
   };
 }
-
+ 
 function buildIntroBubble() {
   return {
     type: "bubble",
@@ -666,17 +667,17 @@ function buildIntroBubble() {
     }
   };
 }
-
+ 
 async function sendToChat() {
   const recommended = getRecommended();
-
+ 
   if (recommended.length === 0) {
     alert("沒有符合的產品推薦！");
     return;
   }
-
+ 
   const bubbles = [buildIntroBubble(), ...recommended.map(pid => buildFlexBubble(PRODUCTS[pid]))];
-
+ 
   try {
     await liff.sendMessages([
       {
@@ -694,7 +695,7 @@ async function sendToChat() {
     alert("傳送失敗，請確認是否在 LINE 中開啟。");
   }
 }
-
+ 
 (async () => {
   try {
     await liff.init({ liffId: "2010695719-5sbQQkew" });
